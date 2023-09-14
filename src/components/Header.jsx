@@ -29,7 +29,7 @@ export default function Header(){
         <header id='navbar' ref={navEl}>
             <nav>
                 <div>
-                    <a>PRODUCTS</a>
+                    <a>CATEGORIES</a>
                 </div>
                 <h1>FRESH GLOW</h1>
                 <div className='rightSide'>

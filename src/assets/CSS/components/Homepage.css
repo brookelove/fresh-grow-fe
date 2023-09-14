@@ -1,0 +1,24 @@
+
+main  section div section .hero{
+    width: 100%;
+    height: 90vh;
+    background-image: url("../../Images/lemons.svg");
+}
+
+main  section div .hero h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 500%;
+    border-bottom: solid 1px black;
+}
+main  section div .categoryContainer {
+    padding: 2%;
+}
+main  section div .categoryContainer .subHeader{
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    margin-bottom: 1.2%;
+    font-weight: 600;
+}
