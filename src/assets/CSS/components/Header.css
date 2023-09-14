@@ -1,0 +1,50 @@
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    border:solid 1px black;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden 
+}
+
+header nav .rightSide {
+    width: 17%;
+}
+header nav .h1 {
+    margin-right: 4%
+}
+
+header nav div a{
+    padding: 0 2%;
+}
+header .searchContainer {
+    width: 100%;
+    padding: 3% 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .searchContainer input{
+    width: 40%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+}
+header .searchContainer a {
+    margin:0 1%;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+header .searchContainer .close {
+    font-size: 25px;
+    font-weight: 100;
+}
+.sticky {
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: rgba(255,155,255,0.5);
+}

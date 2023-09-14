@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Page from "./pages/Page";
 import { useLocation } from "react-router-dom";
+import "./assets/CSS/reset.css";
 
 function App() {
   const currentPage = useLocation().pathname;
