@@ -17,3 +17,14 @@ code {
     monospace;
 }
 
+button {
+  background-color: white;
+  border: 1px solid black;
+  margin-top: 7%;
+  padding: 2.5% 10%;
+  font-weight: 550;
+  transition: all ease-in-out 1s;
+}
+button:hover{
+  border: 1px dotted black;
+}

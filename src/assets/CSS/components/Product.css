@@ -1,0 +1,35 @@
+.productContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    padding: 2%;
+}
+.productContainer .image {
+    width:450px;
+    height: 500px;
+    background-color: grey;;
+}
+.productContainer .information h1{
+    font-weight: 500;
+    font-size: 35px;
+    margin-bottom: 6%;
+}
+.productContainer .information .subheader {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    margin-bottom: 10px
+}
+.productContainer .information div{
+    display: flex;
+    flex-direction: column;
+    
+}
+.productContainer .information div label{
+    margin: 5% 0 1% 2%;
+}
+.productContainer .information div select{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-top: 5%;
+}
