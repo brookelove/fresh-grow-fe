@@ -1,9 +1,11 @@
 
 .categoryCardContainer div{
     background-color: rgba(100, 210, 229, 0.48);
-    width: 15%;
-    height: 300px;
+    width: 100px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    border-radius: 2%;
 }

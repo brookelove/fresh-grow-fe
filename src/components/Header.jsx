@@ -2,6 +2,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import "../assets/CSS/components/Header.css"
 import { hover } from '@testing-library/user-event/dist/hover';
+
+
 export default function Header(){
     const navEl = useRef(null);
     const [titleText, setTitleText] = useState("FRESH GLOW");
@@ -9,8 +11,6 @@ export default function Header(){
     const categoryCardRef = useRef()
 
     useEffect(()=> {
-
-    
     let stickyNavbar = () => {
         if(navEl.current){
             if(window.scrollY >= navEl.current.offsetTop){

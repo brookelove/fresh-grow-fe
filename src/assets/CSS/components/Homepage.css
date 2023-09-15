@@ -16,6 +16,12 @@ main  section div .hero h1{
 main  section div .categoryContainer {
     padding: 2%;
 }
+main  section div .categoryContainer div{
+    padding: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 main  section div .categoryContainer .subHeader{
     text-decoration: underline;
     text-underline-offset: 0.25em;
