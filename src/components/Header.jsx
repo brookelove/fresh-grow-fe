@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import "../assets/CSS/components/Header.css"
-import { hover } from '@testing-library/user-event/dist/hover';
+import ProductCard from "./ProductCard";
 
 
 export default function Header({showCart}){
@@ -63,6 +63,7 @@ export default function Header({showCart}){
               product.product_name.toLowerCase().includes(searchQuery.toLowerCase())
             );
             setFilteredProducts(filtered);
+            
             }
           };
 
@@ -71,6 +72,7 @@ export default function Header({showCart}){
         const data = await fetchProducts();
         filterProducts(data);
         setShouldShowResults(true);
+        setSearchQuery('');
     }
 
 
@@ -81,7 +83,7 @@ export default function Header({showCart}){
     const fetchDataAndFilter = async () => {
         const data = await fetchProducts();
         filterProducts(data);
-      };
+    };
 
 
     if(username != null || username != undefined) {
@@ -169,11 +171,14 @@ export default function Header({showCart}){
             )}
             {/* Display search results */}
             {isSearching && shouldShowResults && (
-                <div>
+                <ul>
                   {filteredProducts.map(product => (
-                    <li key={product.id}>{product.product_name}</li>
+                    <li><Link to={{pathname:`/products/product/${product.id}`,
+                    // the target route 
+                   state: { product: product 
+                }}} key={product.id}>{product.product_name}</Link></li>
                   ))}
-                </div>
+                </ul>
             )}
             
         </header>
