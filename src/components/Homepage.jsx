@@ -8,7 +8,7 @@ export default function Homepage(){
             <h1>FRESH GLOW</h1>
         </div>
         <div className="categoryContainer">
-            <h2 className="subHeader">CATEGORY</h2>
+            <h2 className="subHeader" id="categoryCards">CATEGORY</h2>
             <CategoryCard/>
             </div>
         </section>

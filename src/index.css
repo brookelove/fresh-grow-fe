@@ -28,3 +28,60 @@ button {
 button:hover{
   border: 1px dotted black;
 }
+.seeThrough {
+  background-color: rgb(98,98,98);
+}
+
+.card {
+	background-color: #fff;
+	border-radius: 20px;
+	max-width: 300px;
+	margin: 10% auto;
+	position: relative;
+	padding: 34px;
+	color: #444;
+	cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		background-color: #ccc;
+		left: 20px;
+		right: 20px;
+		bottom: 0;
+		top: 50%;
+		z-index: -1;
+		box-shadow: 0 0 40px lighten(#000, 60%);
+		transition: box-shadow .2s ease-in-out;
+	}
+	&.level-3 {
+		&:hover {
+			&:before {
+				box-shadow: 0 0 80px lighten(#000, 60%);
+			}
+		}
+	}
+
+} 
+.dontMove {
+  top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+a, a::before, a::after, a:active {
+  text-decoration: none;
+  color: black;
+}

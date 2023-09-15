@@ -1,0 +1,15 @@
+.reviewContainer .card {
+    width: 70vw;
+    text-align: center;
+    border-radius: 26px;
+}
+.reviewContainer .card h1{
+    font-weight: 800;
+    font-size: 50px;
+    margin: 10% 0;
+}
+.reviewContainer .card h2, .reviewContainer .card h3{
+    font-weight: 600;
+    font-size: 20px;
+    margin: 3% 0;
+}

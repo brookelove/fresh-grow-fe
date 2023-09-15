@@ -3,7 +3,7 @@ import "../assets/CSS/components/Cart.css"
 export default function Cart(){
     return(
         <section className="cartContainer">
-            <div className="seeThrough"></div>
+            <div className="dontMove"></div>
             <div className="checkoutSection">
                 <header>
                     <h1>FRESH GLOW</h1>

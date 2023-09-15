@@ -1,0 +1,51 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(210, 209, 209);
+}
+.loginContainer .card {
+	border-radius: 20px;
+	max-width: 300px;
+	padding: 34px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.loginContainer h1{
+    letter-spacing: 0.5em;
+    font-size: 30px;
+    margin-bottom: 2.5%;
+    font-weight: 600;
+    padding-bottom: 5%;
+}
+.loginContainer form section{
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0;
+    height: 60px;
+}
+.loginContainer form section input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid grey;
+}
+.loginContainer a{
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+    padding:1%;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+.loginContainer a:hover{
+    border: 1px dotted black;
+    text-decoration: none;
+  
+}

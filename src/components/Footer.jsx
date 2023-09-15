@@ -1,8 +1,12 @@
+import "../assets/CSS/components/Footer.css"
+
 export default function Footer (){
     return (
-        <footer>
+        <footer className="footerContainer">
             {/* willl put copy write, phone, and email down here to contact */}
-            <h1>FRESH GLOW</h1> <h2>CONTACT US</h2>
+            <h2>GLOW BRIGHT</h2>
+            <h1>FRESH GLOW</h1> 
+            <h2>CONTACT US</h2>
         </footer>
     )
 

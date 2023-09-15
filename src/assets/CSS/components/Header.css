@@ -11,6 +11,12 @@ header nav{
     background-color: transparent;
     overflow: hidden ;
 }
+header .banner{
+background-color: black;
+color: white;
+font-size: 14px;
+padding: 0.5%
+}
 
 header nav .rightSide {
     width: 17%;

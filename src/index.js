@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import Product from "./components/Product";
 import LostPage from "./components/404";
 import Order from "./components/Order";
+import CartModal from "./components/CartModal";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "review",
         element: <Order />,
+      },
+      {
+        path: "ready",
+        element: <CartModal />,
       },
     ],
   },
