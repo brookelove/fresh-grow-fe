@@ -15,6 +15,7 @@
     height: 100vh;
     position: fixed;
     background-color: whitesmoke;
+    z-index: 100;
 
 }
 .cartContainer .checkoutSection header {

@@ -4,7 +4,7 @@ import "../assets/CSS/components/Header.css"
 import { hover } from '@testing-library/user-event/dist/hover';
 
 
-export default function Header(){
+export default function Header({showCart}){
     const navEl = useRef(null);
     const [titleText, setTitleText] = useState("FRESH GLOW");
     const [isSearching, setSearching] = useState(false);
@@ -118,7 +118,7 @@ export default function Header(){
 
                     }
                     
-                    <strong>CART (0)</strong>
+                    <a onClick={showCart}>CART (0)</a>
                 </div>
             </nav>
              {/* change from hide to show in the code */}

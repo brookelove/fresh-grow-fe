@@ -1,6 +1,6 @@
 import "../assets/CSS/components/Cart.css"
 
-export default function Cart(){
+export default function Cart({onClose}){
     return(
         <section className="cartContainer">
             <div className="dontMove"></div>
@@ -9,7 +9,7 @@ export default function Cart(){
                     <h1>FRESH GLOW</h1>
                     <div className="cartInfo">
                         <h1>CART(0)</h1>
-                        <span class="close">&times;</span>
+                        <span className="close" onClick={onClose}>&times;</span>
                     </div>
                 </header>
                 <h6>SHOPPING CART</h6>
