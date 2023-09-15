@@ -8,9 +8,51 @@ export default function Header(){
     const navEl = useRef(null);
     const [titleText, setTitleText] = useState("FRESH GLOW");
     const [isSearching, setSearching] = useState(false);
+    const [user, setUserName] = useState(null);
+    const [logout, setLogout] = useState(false);
     const categoryCardRef = useRef()
 
+    let handleSubmit = async (event) => {
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        };
+    
+        try {
+            let response = await fetch('http://localhost:3001/api/user/logout',options);
+            console.log(response)
+
+            const data = await response.json();
+
+            if(response.status === 200) {
+                console.log(data);
+                 // If login or sign up is successful, redirect to home page
+                localStorage.setItem('username', data.username);
+                window.location = '/'
+            } else {
+                console.error("Server Response ", response);
+            }
+
+        } catch (error) {
+            console.error("Error ", error);
+        }
+    };
+
+
     useEffect(()=> {
+    let username = localStorage.getItem("username")
+    console.log(username)
+    if(username != null || username != undefined) {
+        setUserName(username)
+        setLogout(true)
+    } else {
+        setUserName("Beauty")
+        setLogout(false)
+    }
     let stickyNavbar = () => {
         if(navEl.current){
             if(window.scrollY >= navEl.current.offsetTop){
@@ -48,21 +90,14 @@ export default function Header(){
         console.log("over");
         setTitleText('FRESH GLOW');
     };
-    // const scrollToCategoryCards = ()=> {
-    //     console.log("setscroll")
-    //     if(categoryCardRef.current) {
-    //         categoryCardRef.current.scrollIntoView({
-    //             block:"start",
-    //             behavior: "smooth"
-    //         })
-    //     }
-    // }
 
     return (
         <header id='navbar' ref={navEl} >
             <div className='banner'><h6>NEW ITEMS COMMING SOON</h6></div>
             <nav>
-                <div>
+                <div className='leftSide'>
+            <h1>Hey {user},</h1>
+                    
                     <Link to="/products">PRODUCTS</Link>
                 </div>
                 <Link to="/" id='titlePage' onMouseEnter={hoverTitle}
@@ -74,7 +109,15 @@ export default function Header(){
                         ) : (
                         <a onClick={openSearch}>SEARCH</a>
                     )}
-                    <Link to="/login">LOGIN</Link>
+                    {logout ? (
+                        <a>LOGOUT</a>
+                        
+                    ) : (
+                        <Link to="/login">LOGIN</Link>
+                    )
+
+                    }
+                    
                     <strong>CART (0)</strong>
                 </div>
             </nav>

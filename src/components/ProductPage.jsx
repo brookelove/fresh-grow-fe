@@ -1,9 +1,11 @@
 import {useState, useEffect} from "react";
+import {useParams} from 'react-router-dom';
+
 import ProductCard from "./ProductCard";
 import "../assets/CSS/components/ProductPage.css"
 
 export default function ProductPage (){
-
+    // const { id } = useParams();
     const [products, setProducts] = useState([]);
 
     useEffect(()=> {

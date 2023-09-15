@@ -7,7 +7,7 @@ header nav{
     align-items: center;
     padding: 2%;
     border:solid 1px black;
-    width: 100%;
+    /* width: 100%; */
     background-color: transparent;
     /* position:fixed; */
 }
@@ -15,14 +15,18 @@ header .banner{
 background-color: black;
 color: white;
 font-size: 14px;
-padding: 0.5%
+padding: 0.5%;
+text-align: center;
 }
 
-header nav .rightSide {
-    width: 17%;
+header nav .rightSide, header nav .leftSide{
+    /* width: 0%; */
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
 }
 header nav .h1 {
-    margin-right: 4%
+    margin-right: 4%;
 }
 
 header nav div a{

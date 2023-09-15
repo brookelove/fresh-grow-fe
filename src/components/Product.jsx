@@ -1,16 +1,32 @@
+import {useLocation, useParams} from 'react-router-dom';
 import "../assets/CSS/components/Product.css"
+import { useEffect, useState } from 'react';
+import Images from '../Images/Images';
 
 export default function Product(){
+    const { id } = useParams();
+    const [product, setProduct] = useState({});
+    const [imageSrc, setImageSrc] = useState('')
+
+    useEffect(()=> {
+        fetch(`http://localhost:3001/api/products/${id}`)
+        .then((response)=>response.json())
+        .then((data)=> {
+            setProduct(data)
+            setImageSrc(Images[data.image_url])
+        })
+    }, [id])
+    console.log(imageSrc)
     return(
         <section className="productContainer">
             <div className="information">
-            <h1>PRODUCT NAME</h1>
+            <h1>{product.product_name}</h1>
             <p className="subheader">DESCRIPTION</p>
             <p>
                 {/* where the discription of the product goes */}
             </p>
             <div>
-                <label for="size">SIZE</label>
+                <label htmlFor="size">SIZE</label>
                 <select name="size">
                     <option value="8 ML">08 ML</option>
                     <option value="15 ML">15 ML</option>
@@ -20,7 +36,7 @@ export default function Product(){
                 </select>
             </div>
             <div>
-                <label for="quantity">QUANTITY</label>
+                <label htmlFor="quantity">QUANTITY</label>
                 <select name="quantity">
                     <option value="8 ML">1</option>
                     <option value="15 ML">2</option>
@@ -32,7 +48,7 @@ export default function Product(){
             <button>ADD TO CART</button>
             </div>
             {/* picture of the product */}
-            <div className="image"/>
+            <img className="image" src={imageSrc} alt={product.product_name}/>
         </section>
     )
 }

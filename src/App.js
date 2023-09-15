@@ -6,23 +6,24 @@ import "./assets/CSS/reset.css";
 
 function App() {
   const currentPage = useLocation().pathname;
+  const hasProductInRoute = currentPage.includes("/product");
 
   // conditionally rendering code to show the header on certain pages
   // const navigate = useNavigate();
 
   //Array of acceptable routes
-  const availbleRoutesToShow = ["/", "/product", "/products"];
+  const availbleRoutesToShow = ["/", "/products"];
 
   //checking if the current route is in the
   const showHeaderAndFooter = availbleRoutesToShow.includes(currentPage);
 
   return (
     <div>
-      {showHeaderAndFooter && <Header />}
+      {(hasProductInRoute || currentPage === "/") && <Header />}
       <main>
         <Page currentPage={currentPage} />
       </main>
-      {showHeaderAndFooter && <Footer />}
+      {(hasProductInRoute || currentPage === "/") && <Footer />}
     </div>
   );
 }
