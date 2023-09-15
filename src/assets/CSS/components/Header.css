@@ -9,7 +9,7 @@ header nav{
     border:solid 1px black;
     width: 100%;
     background-color: transparent;
-    overflow: hidden ;
+    /* position:fixed; */
 }
 header .banner{
 background-color: black;
@@ -51,9 +51,9 @@ header .searchContainer .close {
     font-size: 25px;
     font-weight: 100;
 }
-.sticky {
+/* .sticky {
     position: fixed;
     top:0;
     width: 100%;
     background-color: rgba(250, 250, 250, 0.228);
-}
+} */

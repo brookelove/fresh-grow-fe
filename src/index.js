@@ -15,6 +15,7 @@ import Product from "./components/Product";
 import LostPage from "./components/404";
 import Order from "./components/Order";
 import CartModal from "./components/CartModal";
+import ProductPage from "./components/ProductPage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "ready",
         element: <CartModal />,
+      },
+      {
+        path: "products",
+        element: <ProductPage />,
       },
     ],
   },

@@ -11,7 +11,7 @@ function App() {
   // const navigate = useNavigate();
 
   //Array of acceptable routes
-  const availbleRoutesToShow = ["/", "/product"];
+  const availbleRoutesToShow = ["/", "/product", "/products"];
 
   //checking if the current route is in the
   const showHeaderAndFooter = availbleRoutesToShow.includes(currentPage);
