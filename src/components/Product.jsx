@@ -7,6 +7,24 @@ export default function Product(){
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const [imageSrc, setImageSrc] = useState('')
+    
+    let addItem = () =>{
+        // setting local storage to get cart items
+        let cartItems = localStorage.getItem('cart');
+
+        if(cartItems) {
+            cartItems = JSON.parse(cartItems);
+            if(!Array.isArray(cartItems)){
+                cartItems = [];
+            }
+        } else {
+            cartItems = [];
+        }
+
+        cartItems.push(product)
+        console.log(cartItems)
+        localStorage.setItem("cart", JSON.stringify(cartItems))
+    } 
 
     useEffect(()=> {
         fetch(`http://localhost:3001/api/products/${id}`)
@@ -45,7 +63,7 @@ export default function Product(){
                     <option value="80 ML">5</option>
                 </select>
             </div>
-            <button>ADD TO CART</button>
+            <button onClick={addItem}>ADD TO CART</button>
             </div>
             {/* picture of the product */}
             <img className="image" src={imageSrc} alt={product.product_name}/>

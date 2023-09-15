@@ -118,7 +118,7 @@ export default function Header({showCart}){
 
                     }
                     
-                    <a onClick={showCart}>CART (0)</a>
+                    <a onClick={showCart}>CART</a>
                 </div>
             </nav>
              {/* change from hide to show in the code */}

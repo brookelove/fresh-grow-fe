@@ -25,14 +25,21 @@
     margin: 3%;
     border-bottom: 1px solid black;
 }
+.cartContainer .checkoutSection header h1{
+    font-weight: 600;
+}
 .cartContainer .checkoutSection .cartInfo{
     display: flex;
+    width: 25%;
 }
 .cartContainer .checkoutSection .cartInfo h1{
     padding-right: 3%;
+
 }
 .cartContainer .checkoutSection .cartInfo span {
-    padding: 1%;
+    margin: 1%;
+    border: 1px solid  whitesmoke;
+
 }
 .cartContainer .checkoutSection .cartInfo span:hover{
     border: 1px dotted black
@@ -42,16 +49,24 @@
     font-size: 15px;
 }
 .cartContainer .checkoutSection main{
-    height: 60vh;
+    height: 55vh;
+}
+.cartContainer .checkoutSection main .cartItem{
+   display: flex;
+   justify-content: space-between;
+   padding: 3% 0;
 }
 .cartContainer .checkoutSection > section div{
     display: flex;
     justify-content: space-between;
     padding: 2% 3%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 .cartContainer .checkoutSection > section div:first-child{
     background-color: rgb(238,238,238);
+}
+.cartContainer .checkoutSection footer{
+    margin: 2% 0;
 }
 .cartContainer .checkoutSection footer{
     margin: 2% 0;

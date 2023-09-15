@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react"
 import "../assets/CSS/components/Cart.css"
 
 export default function Cart({onClose}){
+    let storedItems = localStorage.getItem('cart');
+
+
+    // this creates the cart that totals all of the amount and cart
+    //empty array to store items 
+    let getCartItems = []
+    let totalSum = 0
+
+    try{
+        getCartItems = storedItems ? JSON.parse(storedItems) : [];
+    } catch (e) {
+        console.error(e)
+    }
+    
     return(
         <section className="cartContainer">
             <div className="dontMove"></div>
@@ -8,18 +23,26 @@ export default function Cart({onClose}){
                 <header>
                     <h1>FRESH GLOW</h1>
                     <div className="cartInfo">
-                        <h1>CART(0)</h1>
+                        <h2>CART ({getCartItems && getCartItems.length > 0 ? getCartItems.length : 0})</h2>
                         <span className="close" onClick={onClose}>&times;</span>
                     </div>
                 </header>
                 <h6>SHOPPING CART</h6>
                 <main>
-                {/* items addend into cout */}
+                {getCartItems && getCartItems.length > 0 ? getCartItems.map((product,i)=> {
+                    totalSum += parseFloat(product.price);
+                    return (
+                        <div key={i} className="cartItem">
+                            <h1>{product.product_name}</h1>
+                            <h1>${product.price}</h1>
+                        </div>
+                    )
+                }): <h1>You have to shop first</h1>}
                 </main>
                 <section>
                     <div>
                         <p>Subtotal</p>
-                        <p>$0</p>
+                        <p>${totalSum}</p>
                     </div>
                 </section>
                 <footer>

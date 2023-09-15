@@ -19,6 +19,14 @@
     text-underline-offset: 0.1em;
     margin-bottom: 10px
 }
+.productContainer .information button{
+  transition: all 0.5s ease-in-out ;
+}
+.productContainer .information button:hover{
+    background-color: black;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+}
 .productContainer .information div{
     display: flex;
     flex-direction: column;

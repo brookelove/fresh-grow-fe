@@ -1,6 +1,5 @@
 import "../assets/CSS/components/Login.css"
 import { useState } from "react"
-import { Link, useNavigation, } from "react-router-dom"
 import axios from "axios"
 
 export default function Login() {
@@ -8,8 +7,6 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-
-    let navigate = useNavigation()
 
     let switchLoginOrSignup = () => {
         setEmail("");
