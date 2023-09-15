@@ -17,28 +17,29 @@ export default function Header({showCart}){
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
-      };
+    };
 
+    const handleSearchResultClick = () => {
+        setSearching(false);
+        setShouldShowResults(false);
+      };
     let handleLogoutSubmit = async (event) => {
 
         const options = {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
+            credentials: 'include'
         };
-    
         try {
             let response = await fetch('http://localhost:3001/api/user/logout',options);
             console.log(response)
 
             const data = await response.json();
+            console.log(data)
 
-            if(response.status === 200) {
+            if(response.status === 204) {
                 console.log(data);
                  // If login or sign up is successful, redirect to home page
-                localStorage.setItem('username', data.username);
+                localStorage.removeItem('username');
                 window.location = '/'
             } else {
                 console.error("Server Response ", response);
@@ -73,6 +74,7 @@ export default function Header({showCart}){
         filterProducts(data);
         setShouldShowResults(true);
         setSearchQuery('');
+        
     }
 
 
@@ -176,7 +178,7 @@ export default function Header({showCart}){
                     <li><Link to={{pathname:`/products/product/${product.id}`,
                     // the target route 
                    state: { product: product 
-                }}} key={product.id}>{product.product_name}</Link></li>
+                }}} key={product.id} onClick={handleSearchResultClick}>{product.product_name}</Link></li>
                   ))}
                 </ul>
             )}

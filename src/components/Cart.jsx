@@ -15,6 +15,34 @@ export default function Cart({onClose}){
     } catch (e) {
         console.error(e)
     }
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({totalPrice: totalSum, orderItems: getCartItems,  quantity: getCartItems.length}),
+    };
+
+    let createOrder = async () => {
+        try {
+            let response = await fetch('http://localhost:3001/api/orders/', options);
+            console.log(response)
+
+            const data = await response.json();
+            console.log(data);
+
+            if(response.status === 200) {
+                console.log(data);
+            } else {
+                console.error("Server Response ", response);
+            }
+
+        } catch (error) {
+            console.error("Error ", error);
+        }
+
+    }
     
     return(
         <section className="cartContainer">
@@ -42,14 +70,14 @@ export default function Cart({onClose}){
                 <section>
                     <div>
                         <p>Subtotal</p>
-                        <p>${totalSum}</p>
+                        <p>${totalSum.toFixed(2)}</p>
                     </div>
                 </section>
                 <footer>
                 <p>Shipping and promotions calculated in checkout.</p>
 
                 <p>Sales tax amount shown in checkout is a best estimate and may differ from amount actually charged and shown on Order Confirmation email.</p>
-                <button>CHECKOUT</button>
+                <button onClick={createOrder}>CHECKOUT</button>
                 </footer>
             </div>
         </section>

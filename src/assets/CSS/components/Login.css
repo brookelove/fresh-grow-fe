@@ -6,6 +6,10 @@
     height: 100vh;
     background-color: rgb(210, 209, 209);
     /* add image to container */
+    background-image: url(../../Images/login.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: 100%; */
 }
 .loginContainer .card {
 	border-radius: 20px;
