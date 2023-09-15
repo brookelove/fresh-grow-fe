@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import "../assets/CSS/components/Header.css"
 export default function Header(){
@@ -34,6 +34,7 @@ export default function Header(){
                     <a>PRODUCTS</a>
                 </div>
                 <h1>FRESH GLOW</h1>
+                {/* the ability to hide and show search using useState T/F */}
                 <div className='rightSide'>
                     {isSearching ? (
                         <a onClick={openSearch}>CLOSE</a>
