@@ -1,0 +1,18 @@
+.productCardConatiner {
+    margin: 20px;
+}
+.productCardConatiner .smallProductImage {
+    width: 250px;
+}
+.productCardConatiner div{
+    display: flex;
+    justify-content: space-between;
+}
+.productCardConatiner div h6{
+    font-weight: 600;
+    
+}
+.productCardConatiner .quickDes{
+    margin-top: 5px;
+    color: rgb(91,91,91);
+}

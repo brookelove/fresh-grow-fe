@@ -74,7 +74,7 @@ export default function Header(){
                         ) : (
                         <a onClick={openSearch}>SEARCH</a>
                     )}
-                    <a>LOGIN</a>
+                    <Link to="/login">LOGIN</Link>
                     <strong>CART (0)</strong>
                 </div>
             </nav>
