@@ -50,6 +50,7 @@
 }
 .cartContainer .checkoutSection main{
     height: 55vh;
+    overflow: scroll;
 }
 .cartContainer .checkoutSection main .cartItem{
    display: flex;

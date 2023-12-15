@@ -18,7 +18,7 @@ export default function ProductCard ({product}){
                 <h5>{product.product_name}</h5>
                 <h6>${product.price}</h6>
             </div>
-            <h6 className="quickDes">Quick Description</h6>
+            <h6 className="quickDes">{product.quick_description}</h6>
         </Link>
     )
 }

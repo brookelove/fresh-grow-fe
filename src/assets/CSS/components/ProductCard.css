@@ -6,13 +6,16 @@
 }
 .productCardConatiner div{
     display: flex;
+    width: 250px;
     justify-content: space-between;
 }
 .productCardConatiner div h6{
     font-weight: 600;
     
+    
 }
 .productCardConatiner .quickDes{
     margin-top: 5px;
+    width: 250px;
     color: rgb(91,91,91);
 }

@@ -3,8 +3,6 @@ import "../assets/CSS/components/Cart.css"
 
 export default function Cart({onClose}){
     let storedItems = localStorage.getItem('cart');
-
-
     // this creates the cart that totals all of the amount and cart
     //empty array to store items 
     let getCartItems = []
@@ -15,13 +13,27 @@ export default function Cart({onClose}){
     } catch (e) {
         console.error(e)
     }
+    
+
+    // deleteing individual times from cart
+    const deleteCartItem = (index) => {
+        getCartItems.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(getCartItems));
+        // force update
+        window.location.reload();
+    };
 
     const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({totalPrice: totalSum, orderItems: getCartItems,  quantity: getCartItems.length}),
+        method: 'POST', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            orderItems: getCartItems.map(item => ({
+                productId:item.id,
+                quantity:item.quantity,
+                price: item.price // sending price for calculating total on server-side
+            }))
+        
+        }),
     };
 
     let createOrder = async () => {
@@ -43,6 +55,7 @@ export default function Cart({onClose}){
         }
 
     }
+
     
     return(
         <section className="cartContainer">
@@ -57,15 +70,16 @@ export default function Cart({onClose}){
                 </header>
                 <h6>SHOPPING CART</h6>
                 <main>
-                {getCartItems && getCartItems.length > 0 ? getCartItems.map((product,i)=> {
-                    totalSum += parseFloat(product.price);
-                    return (
-                        <div key={i} className="cartItem">
-                            <h1>{product.product_name}</h1>
-                            <h1>${product.price}</h1>
-                        </div>
-                    )
-                }): <h1>You have to shop first</h1>}
+                {getCartItems && getCartItems.length > 0 ? getCartItems.map((product, i) => {
+                totalSum += parseFloat(product.price);
+                return (
+                  <div key={i} className="cartItem" onClick={() => deleteCartItem(i)}>
+                    <h1>{product.product_name}</h1>
+                    <h1>${product.price}</h1>
+                  </div>
+                )
+                })
+                : <h1>You have to shop first</h1>}
                 </main>
                 <section>
                     <div>

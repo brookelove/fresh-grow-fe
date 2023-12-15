@@ -2,11 +2,16 @@ import {useLocation, useParams} from 'react-router-dom';
 import "../assets/CSS/components/Product.css"
 import { useEffect, useState } from 'react';
 import Images from '../Images/Images';
+import CartModal from './CartModal';
 
 export default function Product(){
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const [imageSrc, setImageSrc] = useState('')
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const showModal = () => setIsModalVisible(true);
+    const hideModal = () => setIsModalVisible(false);
     
     let addItem = () =>{
         // setting local storage to get cart items
@@ -24,6 +29,7 @@ export default function Product(){
         cartItems.push(product)
         console.log(cartItems)
         localStorage.setItem("cart", JSON.stringify(cartItems))
+        showModal()
     } 
 
     useEffect(()=> {
@@ -40,8 +46,9 @@ export default function Product(){
             <div className="information">
             <h1>{product.product_name}</h1>
             <p className="subheader">DESCRIPTION</p>
+            <p>{product.quick_description}</p>
             <p>
-                {/* where the discription of the product goes */}
+                {product.long_description}
             </p>
             <div>
                 <label htmlFor="size">SIZE</label>
@@ -64,6 +71,7 @@ export default function Product(){
                 </select>
             </div>
             <button onClick={addItem}>ADD TO CART</button>
+            {isModalVisible && <CartModal hideModal={hideModal} />}
             </div>
             {/* picture of the product */}
             <img className="image" src={imageSrc} alt={product.product_name}/>

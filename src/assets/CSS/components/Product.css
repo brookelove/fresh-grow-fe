@@ -9,6 +9,10 @@
     height: 500px;
     background-color: grey;;
 }
+
+.productContainer .information{
+    width:30%;
+}
 .productContainer .information h1{
     font-weight: 500;
     font-size: 35px;
@@ -35,7 +39,7 @@
 .productContainer .information div label{
     margin: 5% 0 1% 2%;
 }
-.productContainer .information div select{
+.productContainer .information div select,.productContainer .information div select:active, .productContainer .information div select::after{
     border-left: none;
     border-right: none;
     border-top: none;

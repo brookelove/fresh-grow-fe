@@ -124,7 +124,7 @@ export default function Header({showCart}){
 
     const hoverTitle = () => {
         // Update the title text on hover
-        setTitleText('GLOW BRIGHT');
+        setTitleText('FRESH ME');
     };
 
     const resetTitle = () => {
