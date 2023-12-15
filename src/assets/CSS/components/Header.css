@@ -7,9 +7,10 @@ header nav{
     align-items: center;
     padding: 2%;
     border:solid 1px black;
-    /* width: 100%; */
     background-color: transparent;
-    /* position:fixed; */
+}
+header nav a {
+    color: black;
 }
 header .banner{
 background-color: black;
@@ -72,5 +73,10 @@ header ul li:hover {
     position: fixed;
     top:0;
     width: 100%;
-    background-color: rgba(250, 250, 250, 0.228);
+    background-color: rgba(0,0,0,0.4);
+    color: whitesmoke;
+    z-index: 150;
+}
+.sticky a {
+    color: whitesmoke;
 }

@@ -83,5 +83,5 @@ button:hover{
 
 a, a::before, a::after, a:active {
   text-decoration: none;
-  color: black;
+  /* color: black; */
 }

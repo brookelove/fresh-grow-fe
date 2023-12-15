@@ -12,6 +12,7 @@ export default function Header({showCart}){
     const [logout, setLogout] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [isSticky, setIsSticky] = useState(false);
     const [shouldShowResults, setShouldShowResults] = useState(false);
 
 
@@ -95,26 +96,42 @@ export default function Header({showCart}){
         setUserName("Beauty")
         setLogout(false)
     }
-    let stickyNavbar = () => {
-        if(navEl.current){
-            if(window.scrollY >= navEl.current.offsetTop){
-                navEl.current.style.position = 'sticky';
-                navEl.current.style.top = '0';
-                navEl.current.style.zIndex = '100';
-            }  else {
-                console.log("removeClass")
-                navEl.current.style.position = 'initial';
-            }
-        }
-    }
-    window.addEventListener('scroll', stickyNavbar)
+    // let stickyNavbar = () => {
+    //     if(navEl.current){
+    //         if(window.scrollY >= navEl.current.offsetTop){
+    //             navEl.current.style.position = 'sticky';
+    //             navEl.current.style.top = '0';
+    //             navEl.current.style.zIndex = '100';
+    //         }  else {
+    //             console.log("removeClass")
+    //             navEl.current.style.position = 'initial';
+    //         }
+    //     }
+    // }
+    // window.addEventListener('scroll', stickyNavbar)
     
     // Call initially to set the position 
-    stickyNavbar();
+    // stickyNavbar();
     fetchDataAndFilter();
-    return ()=> {
-        window.removeEventListener('scroll', stickyNavbar)
-    }
+    // return ()=> {
+    //     window.removeEventListener('scroll', stickyNavbar)
+    // }
+    let stickyNavbar = () => {
+        if (navEl.current) {
+            if (window.scrollY > navEl.current.offsetTop) {
+                setIsSticky(true); // Add class when it's sticky
+            } else {
+                setIsSticky(false); // Remove class when it's not sticky
+            }
+        }
+    };
+
+    window.addEventListener('scroll', stickyNavbar);
+
+    // Cleanup
+    return () => {
+        window.removeEventListener('scroll', stickyNavbar);
+    };
     }, [])
 
 
@@ -129,13 +146,12 @@ export default function Header({showCart}){
 
     const resetTitle = () => {
         // Reset the title text on mouse leave
-        console.log("over");
         setTitleText('FRESH GLOW');
     };
     
 
     return (
-        <header id='navbar' ref={navEl} >
+        <header id='navbar' ref={navEl} className={isSticky ? 'sticky' : ''}>
             <div className='banner'><h6>NEW ITEMS COMMING SOON</h6></div>
             <nav>
                 <div className='leftSide'>

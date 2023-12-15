@@ -7,11 +7,17 @@ import { useState, useEffect } from "react";
 export default function Homepage(){
 
     const [categories, setCategories ] = useState([]);
+    const [featured, setFeatured] = useState([]);
+    let filterFeatured = (data) => {
+        return data.isFeatured == true;
+    }
 
     useEffect(()=> {
         fetch('http://localhost:3001/api/categories').then((response)=>response.json()).then((data)=> {
-            console.log(data)
             setCategories(data)
+        })
+        fetch('http://localhost:3001/api/products').then((response)=>response.json()).then((data)=> {
+            setFeatured(data.filter(filterFeatured))
         })
     }, [])
     console.log(categories)
@@ -20,9 +26,15 @@ export default function Homepage(){
             <video autoPlay loop muted className="hero">
                 <source src={introVideo} type="video/mp4"/>
             </video>         
-            <h1>FRESH GLOW</h1>
+            <h1 className="title">FRESH GLOW</h1>
             <div className="categoryContainer">
-            </div>
+            {categories.map((category) => (
+                <CategoryCard key={category.id} category={category} />
+            ))}
+        </div>
+        <section>
+            <h6>FEATURED</h6>
+        </section>
         </section>
     )
 }
