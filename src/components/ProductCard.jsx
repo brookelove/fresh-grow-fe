@@ -4,8 +4,6 @@ import "../assets/CSS/components/ProductCard.css"
 // this is on product page when searching and homepage
 export default function ProductCard ({product}){
     const imageSrc = require(`../Images/${product.image_url}`)
-    console.log(product.image_url)
-    console.log(imageSrc);
     return(
         <Link to ={{
             pathname: `product/${product.id}`,

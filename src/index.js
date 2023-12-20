@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "product",
+        path: "product/:id",
         element: <Product />,
       },
       {
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         element: <CartModal />,
       },
       {
-        path: "products",
+        path: "products/:id?",
         element: <ProductPage />,
       },
       {

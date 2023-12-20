@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import "../assets/CSS/components/Header.css"
-import ProductCard from "./ProductCard";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 
 export default function Header({showCart}){
@@ -93,29 +93,10 @@ export default function Header({showCart}){
         setUserName(username)
         setLogout(true)
     } else {
-        setUserName("Beauty")
+        setUserName("Babe")
         setLogout(false)
     }
-    // let stickyNavbar = () => {
-    //     if(navEl.current){
-    //         if(window.scrollY >= navEl.current.offsetTop){
-    //             navEl.current.style.position = 'sticky';
-    //             navEl.current.style.top = '0';
-    //             navEl.current.style.zIndex = '100';
-    //         }  else {
-    //             console.log("removeClass")
-    //             navEl.current.style.position = 'initial';
-    //         }
-    //     }
-    // }
-    // window.addEventListener('scroll', stickyNavbar)
-    
-    // Call initially to set the position 
-    // stickyNavbar();
     fetchDataAndFilter();
-    // return ()=> {
-    //     window.removeEventListener('scroll', stickyNavbar)
-    // }
     let stickyNavbar = () => {
         if (navEl.current) {
             if (window.scrollY > navEl.current.offsetTop) {
@@ -152,49 +133,58 @@ export default function Header({showCart}){
 
     return (
         <header id='navbar' ref={navEl} className={isSticky ? 'sticky' : ''}>
-            <div className='banner'><h6>NEW ITEMS COMMING SOON</h6></div>
+            <section className='bannerContainer'>
+            <div className='banner'>
+                <h6>NEW ITEMS COMMING SOON</h6>
+                <h6>FRESH ME</h6>
+                <h6>CHECK OUT OUR NEW UNER EYE MASK</h6>
+                <h6>Hey Babe</h6>
+            </div>
+            </section>
             <nav>
                 <div className='leftSide'>
-            <h1>Hey {user},</h1>
-                    
-                    <Link to="/products">PRODUCTS</Link>
+                    <h1>Hey {user},</h1>
+                    <Link to="/products">ALL</Link>
+                    <Link to="/products/1">BODY</Link>
+                    <Link to="/products/3">EYES</Link>
+                    <Link to="/products/2">FACE</Link>
+                    <Link to="/products/4">HAIR</Link>
+                    <Link to="/products/5">LIPS</Link>
                 </div>
                 <Link to="/" id='titlePage' onMouseEnter={hoverTitle}
                     onMouseLeave={resetTitle}>{titleText}</Link>
                 {/* the ability to hide and show search using useState T/F */}
                 <div className='rightSide'>
-                    {isSearching ? (
-                        <a onClick={openSearch}>CLOSE</a>
-                        ) : (
                         <a onClick={openSearch}>SEARCH</a>
-                    )}
                     {logout ? (
                         <a onClick={handleLogoutSubmit}>LOGOUT</a>
                         
                     ) : (
                         <Link to="/login">LOGIN</Link>
                     )
-
                     }
                     
                     <a onClick={showCart}>CART</a>
                 </div>
             </nav>
-             {/* change from hide to show in the code */}
             {isSearching && (
                 <div className='searchContainer'>
-                <input text="search" placeholder="search for items" value={searchQuery} onChange={handleSearchChange}></input>
-                <a onClick={search}>SEARCH</a>
+                <a onClick={openSearch}>X</a>
+                <input text="search" placeholder="search for items" value={searchQuery} onChange={handleSearchChange} className={isSticky ? 'textBarDark' : ''}></input>
+                <a onClick={search}>
+                    <FaArrowRightLong />
+                </a>
             </div>
             )}
             {/* Display search results */}
             {isSearching && shouldShowResults && (
                 <ul>
                   {filteredProducts.map(product => (
-                    <li><Link to={{pathname:`/products/product/${product.id}`,
-                    // the target route 
+                    <li>
+                        <Link to={{pathname:`/products/product/${product.id}`,
                    state: { product: product 
-                }}} key={product.id} onClick={handleSearchResultClick}>{product.product_name}</Link></li>
+                }}} key={product.id} onClick={handleSearchResultClick}>{product.product_name}</Link>
+                </li>
                   ))}
                 </ul>
             )}

@@ -1,7 +1,5 @@
-
 main  section div section .hero{
     width: 100vw;
-    /* background-image: url("../../videos/introPage.mp4"); */
 }
 
 main  .home-container .title{
@@ -12,11 +10,10 @@ main  .home-container .title{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 150%;
+    margin-top: 30%;
     font-size: 1000%;
 }
 main  section div .categoryContainer {
-    padding: 2%;
     display: flex;
     justify-content: space-evenly;
 
@@ -32,4 +29,26 @@ main  section div .categoryContainer .subHeader{
     text-underline-offset: 0.25em;
     margin-bottom: 1.2%;
     font-weight: 600;
+}
+.featuredSection {
+    color:whitesmoke;
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding:1.5% 3%;
+}
+.featuredSection div {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.featuredSection div h1 {
+    font-size: 1.25em;
+    font-weight: 700;
+}
+.footerHero {
+    width: 100vw;
 }

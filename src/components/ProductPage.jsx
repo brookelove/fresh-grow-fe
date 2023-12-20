@@ -1,23 +1,26 @@
 import {useState, useEffect} from "react";
 import {useParams} from 'react-router-dom';
-
 import ProductCard from "./ProductCard";
 import "../assets/CSS/components/ProductPage.css"
 
 export default function ProductPage (){
-    // const { id } = useParams();
     const [products, setProducts] = useState([]);
+    const params = useParams();
 
     useEffect(()=> {
-        fetch('http://localhost:3001/api/products').then((response)=>response.json()).then((data)=> {
-            console.log(data);
+        if(Object.keys(params).length === 0) {
+            fetch('http://localhost:3001/api/products').then((response)=>response.json()).then((data)=> {
             setProducts(data)
         })
-    }, [])
-    console.log(products)
+        } else {
+            fetch(`http://localhost:3001/api/categories/${params.id}`).then((response)=>response.json()).then((data)=> {
+                setProducts(data.products)
+        })
+        }
+        
+    }, [params])
     return (
         <section className="productPageContainer">
-            {/* where this will be mapped over to get individual products in the quick view */}
             { products.map(product => <ProductCard key={product.id} product={product}/>) }
         </section>
     )

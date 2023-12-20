@@ -3,3 +3,7 @@
     justify-content: space-around;
     padding: 2% 0;
 }
+.footerContainer h1 {
+    font-weight: 700;
+    letter-spacing: 10px;
+}

@@ -6,33 +6,51 @@ header nav{
     justify-content: space-between;
     align-items: center;
     padding: 2%;
-    border:solid 1px black;
+    border:solid 1px rgb(77, 77, 77);
     background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 header nav a {
     color: black;
 }
-header .banner{
-background-color: black;
-color: white;
-font-size: 14px;
-padding: 0.5%;
-text-align: center;
+header .bannerContainer {
+    background-color: black;
 }
-
-header nav .rightSide, header nav .leftSide{
-    /* width: 0%; */
-    width: 20%;
+header .banner{
     display: flex;
     justify-content: space-evenly;
-}
-header nav .h1 {
-    margin-right: 4%;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 0.5%;
+    animation: bannermove 50s linear infinite;;
 }
 
-header nav div a{
-    padding: 0 2%;
+header nav .rightSide{
+    width: 35%;
+    display: flex;
+    justify-content: flex-end;
 }
+header nav .leftSide{
+    width: 35%;
+    display: flex;
+}
+header nav .leftSide h1{
+    font-weight: 900;
+    padding-right: 2%;
+}
+header nav .leftSide a:hover{
+    text-decoration: underline;
+}
+header nav div a{
+    padding: 0 1.2%;
+}
+
+#titlePage {
+font-weight: 700;
+letter-spacing: 10px;
+}
+
 header .searchContainer {
     width: 100%;
     padding: 3% 0 ;
@@ -40,17 +58,35 @@ header .searchContainer {
     justify-content: center;
     align-items: center;
 }
+header .searchContainer a {
+    text-decoration: none !important;
+    padding: 0.25%;
+    border: dotted 1.5px transparent;
+}
+header .searchContainer a:hover {
+    border: dotted 1.5px black;
+}
 header .searchContainer input{
     width: 40%;
+    padding:1%;
     border-top: none;
     border-left: none;
     border-right: none;
+    background-color: whitesmoke;
+    z-index:600;
     border-bottom: 1px solid black;
 }
 header .searchContainer a {
     margin:0 1%;
     text-decoration: underline;
     text-underline-offset: 0.2em;
+}
+
+header .textBarDark {
+    padding: 2% !important;
+    background-color:  rgba(0,0,0,0.4) !important;
+    color: whitesmoke !important;
+
 }
 header .searchContainer .close {
     font-size: 25px;
@@ -80,3 +116,13 @@ header ul li:hover {
 .sticky a {
     color: whitesmoke;
 }
+@keyframes bannermove {
+    0% {
+      /* margin-left: 0px; */
+      transform: translateX(100%);
+    }
+    100% {
+        /* margin-left: -5746px; */
+        transform: translateX(-100%);
+    }
+  }
