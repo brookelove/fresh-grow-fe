@@ -112,7 +112,7 @@ export default function Login() {
                                     <label htmlFor="password">PASSWORD</label>
                                     <input type="text" name="password" value={password} onChange={onInputChange}/>
                                 </section>
-                                    <button type="submit">LOGIN</button>
+                                    <button className="submitBtn" type="submit" >LOGIN</button>
                             </form>
                             <a onClick={switchLoginOrSignup}>SIGNUP</a>
                         </section>

@@ -39,9 +39,6 @@ header nav .leftSide h1{
     font-weight: 900;
     padding-right: 2%;
 }
-header nav .leftSide a:hover{
-    text-decoration: underline;
-}
 header nav div a{
     padding: 0 1.2%;
 }
@@ -102,7 +99,7 @@ header ul li {
     text-decoration: underline;
     text-underline-offset: 0.2em;
 }
-header ul li:hover {
+header nav .leftSide a:hover, header a:hover {
     text-decoration: underline dotted;
 }
 .sticky {
@@ -118,11 +115,9 @@ header ul li:hover {
 }
 @keyframes bannermove {
     0% {
-      /* margin-left: 0px; */
       transform: translateX(100%);
     }
     100% {
-        /* margin-left: -5746px; */
         transform: translateX(-100%);
     }
   }

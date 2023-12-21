@@ -5,21 +5,20 @@
     flex-direction: column;
     height: 100vh;
     background-color: rgb(210, 209, 209);
-    /* add image to container */
-    background-image: url(../../Images/login.svg);
+    background-image: url(../../Images/login.png);
     background-repeat: no-repeat;
     background-size: cover;
-    /* width: 100%; */
 }
 .loginContainer .card {
 	border-radius: 20px;
-	max-width: 400px;
+	width: 400px;
 	padding: 34px;
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 } 
 
 .loginContainer h1{
@@ -54,5 +53,7 @@
 .loginContainer a:hover{
     border: 1px dotted black;
     text-decoration: none;
-  
+}
+.submitBtn {
+    width: 100%;
 }

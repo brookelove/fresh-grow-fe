@@ -169,7 +169,7 @@ export default function Header({showCart}){
             </nav>
             {isSearching && (
                 <div className='searchContainer'>
-                <a onClick={openSearch}>X</a>
+                <a onClick={openSearch}>&times;</a>
                 <input text="search" placeholder="search for items" value={searchQuery} onChange={handleSearchChange} className={isSticky ? 'textBarDark' : ''}></input>
                 <a onClick={search}>
                     <FaArrowRightLong />

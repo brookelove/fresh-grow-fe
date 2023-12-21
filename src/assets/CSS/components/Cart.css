@@ -37,7 +37,7 @@
 
 }
 .cartContainer .checkoutSection .cartInfo span {
-    margin: 1%;
+    margin: -2% 0 0% 15%;
     border: 1px solid  whitesmoke;
 
 }
@@ -66,9 +66,33 @@
 .cartContainer .checkoutSection > section div:first-child{
     background-color: rgb(238,238,238);
 }
+
+.noItems {
+    margin-top: 40%;
+    font-weight: 700;
+    text-align: center;
+}
 .cartContainer .checkoutSection footer{
     margin: 2% 0;
 }
 .cartContainer .checkoutSection footer{
     margin: 2% 0;
+}
+
+.quantPrice,.titleRem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+.titleRem {
+    width:45%
+}
+.removeBtn {
+    border: solid transparent 1px;
+    padding:2%
+}
+.removeBtn:hover {
+    border: dotted black 1px;
+    padding:2%
 }

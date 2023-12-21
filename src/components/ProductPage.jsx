@@ -13,7 +13,7 @@ export default function ProductPage (){
             setProducts(data)
         })
         } else {
-            fetch(`http://localhost:3001/api/categories/${params.id}`).then((response)=>response.json()).then((data)=> {
+            fetch(`http://localhost:3001/api/categories/${params.categoryId}`).then((response)=>response.json()).then((data)=> {
                 setProducts(data.products)
         })
         }

@@ -1,17 +1,3 @@
-/* .addedToCart{
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100vh;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-
-} */
 .addedToCart .card {
     display: flex;
     flex-direction: row;
@@ -24,16 +10,15 @@
 }
 
 .addedToCart .card .sectionBtn {
-   margin-left: 10%;
+   margin-top: 10%;
 }
 
 .addedToCart .card .miniHero {
-    background-image: url("../../Images/lemons.svg");
+    background-image: url("../../Images/login.svg");
     height: 350px;
     width: 350px;
     background-repeat: none;
 }
-.addedToCart .card .sectionBtn {
-    margin-left: 10%;
-    width: 200px;
- }
+.moreBtn {
+    width:100%
+}

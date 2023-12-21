@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react"
+ import { useEffect, useState } from "react"
 import "../assets/CSS/components/Cart.css"
 
 export default function Cart({onClose}){
     let storedItems = localStorage.getItem('cart');
-    // this creates the cart that totals all of the amount and cart
-    //empty array to store items 
     let getCartItems = []
     let totalSum = 0
 
@@ -14,7 +12,7 @@ export default function Cart({onClose}){
         console.error(e)
     }
     
-
+    console.log(getCartItems)
     // deleteing individual times from cart
     const deleteCartItem = (index) => {
         getCartItems.splice(index, 1);
@@ -30,7 +28,7 @@ export default function Cart({onClose}){
             orderItems: getCartItems.map(item => ({
                 productId:item.id,
                 quantity:item.quantity,
-                price: item.price // sending price for calculating total on server-side
+                price: item.price
             }))
         
         }),
@@ -73,13 +71,19 @@ export default function Cart({onClose}){
                 {getCartItems && getCartItems.length > 0 ? getCartItems.map((product, i) => {
                 totalSum += parseFloat(product.price);
                 return (
-                  <div key={i} className="cartItem" onClick={() => deleteCartItem(i)}>
+                  <div key={i} className="cartItem">
+                    <div className="titleRem">
+                    <span className="removeBtn" onClick={() => deleteCartItem(i)}>&times;</span>
                     <h1>{product.product_name}</h1>
-                    <h1>${product.price}</h1>
+                    </div>
+                    <div className="quantPrice">
+                        <h1>{product.quantity} Item(s)</h1>
+                        <h1>${product.price}</h1>
+                    </div>
                   </div>
                 )
                 })
-                : <h1>You have to shop first</h1>}
+                : <h1 className="noItems">LET'S GET TO SHOPPING</h1>}
                 </main>
                 <section>
                     <div>

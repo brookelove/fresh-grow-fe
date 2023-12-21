@@ -14,22 +14,34 @@ export default function Product(){
     const hideModal = () => setIsModalVisible(false);
     
     let addItem = () =>{
-        // setting local storage to get cart items
+        const selectedQuantity = document.querySelector('select[name="quantity"]').value;
+        const selectedSize = document.querySelector('select[name="size"]').value;
         let cartItems = localStorage.getItem('cart');
+        const item = {
+            ...product,
+            quantity: selectedQuantity,
+            size: selectedSize
+        };
 
-        if(cartItems) {
+        if (cartItems) {
             cartItems = JSON.parse(cartItems);
-            if(!Array.isArray(cartItems)){
+            if (!Array.isArray(cartItems)) {
                 cartItems = [];
             }
+
+            const existingItemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id);
+
+            if (existingItemIndex !== -1) {
+                cartItems[existingItemIndex].quantity = selectedQuantity;
+            } else {
+                cartItems.push(item);
+            }
         } else {
-            cartItems = [];
+            cartItems = [item];
         }
 
-        cartItems.push(product)
-        console.log(cartItems)
-        localStorage.setItem("cart", JSON.stringify(cartItems))
-        showModal()
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    showModal();
     } 
 
     useEffect(()=> {
@@ -37,7 +49,8 @@ export default function Product(){
         .then((response)=>response.json())
         .then((data)=> {
             setProduct(data)
-            setImageSrc(Images[data.image_url])
+            const dataimageSrc = require(`../Images/${data.image_url}`)
+            setImageSrc(dataimageSrc)
         })
     }, [id])
     console.log(imageSrc)
@@ -63,11 +76,11 @@ export default function Product(){
             <div>
                 <label htmlFor="quantity">QUANTITY</label>
                 <select name="quantity">
-                    <option value="8 ML">1</option>
-                    <option value="15 ML">2</option>
-                    <option value="30 ML">3</option>
-                    <option value="50 ML">4</option>
-                    <option value="80 ML">5</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
             </div>
             <button onClick={addItem}>ADD TO CART</button>
