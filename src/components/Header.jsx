@@ -9,7 +9,7 @@ export default function Header({showCart}){
     const [titleText, setTitleText] = useState("FRESH GLOW");
     const [isSearching, setSearching] = useState(false);
     const [user, setUserName] = useState(null);
-    const [setLogout] = useState(false);
+    const [logout, setLogout] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [isSticky, setIsSticky] = useState(false);
@@ -153,7 +153,7 @@ export default function Header({showCart}){
                     onMouseLeave={resetTitle}>{titleText}</Link>
                 {/* the ability to hide and show search using useState T/F */}
                 <div className='rightSide'>
-                        <button onClick={openSearch} >SEARCH</button>
+                        <a onClick={openSearch} >SEARCH</a>
                     {/* {logout ? (
                         <a onClick={handleLogoutSubmit}>LOGOUT</a>
                         
@@ -167,11 +167,11 @@ export default function Header({showCart}){
             </nav>
             {isSearching && (
                 <div className='searchContainer'>
-                <button onClick={openSearch}>&times;</button>
+                <a onClick={openSearch}>&times;</a>
                 <input text="search" placeholder="search for items" value={searchQuery} onChange={handleSearchChange} className={isSticky ? 'textBarDark' : ''}></input>
-                <button onClick={search}>
+                <a onClick={search}>
                     <FaArrowRightLong />
-                </button>
+                </a>
             </div>
             )}
             {/* Display search results */}
