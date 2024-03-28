@@ -9,11 +9,11 @@ export default function ProductPage (){
 
     useEffect(()=> {
         if(Object.keys(params).length === 0) {
-            fetch('http://localhost:3001/api/products').then((response)=>response.json()).then((data)=> {
+            fetch('https://freshglow.onrender.com/api/products').then((response)=>response.json()).then((data)=> {
             setProducts(data)
         })
         } else {
-            fetch(`http://localhost:3001/api/categories/${params.categoryId}`).then((response)=>response.json()).then((data)=> {
+            fetch(`https://freshglow.onrender.com/api/categories/${params.categoryId}`).then((response)=>response.json()).then((data)=> {
                 setProducts(data.products)
         })
         }

@@ -3,7 +3,8 @@ import Images from '../Images';
 // other code
 
 useEffect(()=> {
-    fetch(`http://localhost:3001/api/products/${id}`)
+       // if need to correct backend change to https://localhost
+    fetch(`https://freshglow.onrender.com/api/products/${id}`)
     .then((response)=>response.json())
     .then((data)=> {
         setProduct(data)

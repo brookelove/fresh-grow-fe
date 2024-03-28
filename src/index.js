@@ -16,6 +16,7 @@ import LostPage from "./components/404";
 import Order from "./components/Order";
 import CartModal from "./components/CartModal";
 import ProductPage from "./components/ProductPage";
+import Checkout from "./components/Checkout";
 import CategoryCard from "./components/CategoryCard";
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "products/:categoryId?/product/:id",
         element: <Product />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },

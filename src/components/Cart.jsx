@@ -36,7 +36,9 @@ export default function Cart({onClose}){
 
     let createOrder = async () => {
         try {
-            let response = await fetch('http://localhost:3001/api/orders/', options);
+            // if need to correct backend change to https://localhost
+       //https://freshglow.onrender.com
+            let response = await fetch('https://freshglow.onrender.com/api/orders/', options);
             console.log(response)
 
             const data = await response.json();
@@ -53,6 +55,13 @@ export default function Cart({onClose}){
         }
 
     }
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
 
     
     return(

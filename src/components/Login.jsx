@@ -52,7 +52,7 @@ export default function Login() {
     
         try {
             let response = await fetch(
-                `${isLogin ? 'http://localhost:3001/api/user/signup' : 'http://localhost:3001/api/user/login'}`, 
+                `${isLogin ? 'https://freshglow.onrender.com/api/user/signup' : 'https://freshglow.onrender.com/api/user/login'}`, 
                 options
             );
             console.log(response)

@@ -1,7 +1,7 @@
 .productContainer {
     display: flex;
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
     padding: 2%;
 }
 .productContainer .image {

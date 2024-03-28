@@ -31,7 +31,7 @@ export default function Header({showCart}){
             credentials: 'include'
         };
         try {
-            let response = await fetch('http://localhost:3001/api/user/logout',options);
+            let response = await fetch('https://freshglow.onrender.com/api/user/logout',options);
             console.log(response)
 
             const data = await response.json();
@@ -53,7 +53,7 @@ export default function Header({showCart}){
     // take to refactor in a section called api to make all api calls from
         //call to the products first
         let fetchProducts = async () => {
-            const response = await fetch('http://localhost:3001/api/products');
+            const response = await fetch('https://freshglow.onrender.com/api/products');
             const data = response.json()
             return data
         }
@@ -156,13 +156,13 @@ export default function Header({showCart}){
                 {/* the ability to hide and show search using useState T/F */}
                 <div className='rightSide'>
                         <a onClick={openSearch}>SEARCH</a>
-                    {logout ? (
+                    {/* {logout ? (
                         <a onClick={handleLogoutSubmit}>LOGOUT</a>
                         
                     ) : (
                         <Link to="/login">LOGIN</Link>
                     )
-                    }
+                    } */}
                     
                     <a onClick={showCart}>CART</a>
                 </div>

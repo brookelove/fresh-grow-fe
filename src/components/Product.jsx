@@ -1,7 +1,6 @@
-import {useLocation, useParams} from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import "../assets/CSS/components/Product.css"
 import { useEffect, useState } from 'react';
-import Images from '../Images/Images';
 import CartModal from './CartModal';
 
 export default function Product(){
@@ -45,7 +44,7 @@ export default function Product(){
     } 
 
     useEffect(()=> {
-        fetch(`http://localhost:3001/api/products/${id}`)
+        fetch(`https://freshglow.onrender.com/api/products/${id}`)
         .then((response)=>response.json())
         .then((data)=> {
             setProduct(data)

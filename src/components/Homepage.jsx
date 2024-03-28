@@ -11,10 +11,10 @@ export default function Homepage(){
     const [categories, setCategories ] = useState([]);
     const [featured, setFeatured] = useState([]);
     let filterFeatured = (data) => {
-        return data.isFeatured == true;
+        return data.isFeatured === true;
     }
     let getTwo = (data) => {
-        if(data.category_name == 'Face' || data.category_name =='Body' ) {
+        if(data.category_name === 'Face' || data.category_name === 'Body' ) {
             console.log('Matched category:', data.category_name);
             return <CategoryCard key={data.id} category={data} />
         }
@@ -26,10 +26,11 @@ export default function Homepage(){
 
 
     useEffect(()=> {
-        fetch('http://localhost:3001/api/categories').then((response)=>response.json()).then((data)=> {
+        // if need to correct backend change to https://localhost
+        fetch('https://freshglow.onrender.com/api/categories').then((response)=>response.json()).then((data)=> {
             setCategories(data)
         })
-        fetch('http://localhost:3001/api/products').then((response)=>response.json()).then((data)=> {
+        fetch('https://freshglow.onrender.com/api/products').then((response)=>response.json()).then((data)=> {
             setFeatured(data.filter(filterFeatured))
         })
     }, [])
