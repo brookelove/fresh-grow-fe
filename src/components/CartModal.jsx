@@ -1,7 +1,7 @@
 import "../assets/CSS/components/CartModal.css"
-import { useNavigate, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 export default function CartModal ({hideModal}){
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
     return (
         <section className="addedToCart dontMove">

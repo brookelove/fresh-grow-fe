@@ -1,6 +1,5 @@
 import "../assets/CSS/components/Login.css"
 import { useState } from "react"
-import axios from "axios"
 
 export default function Login() {
     const [isLogin, setIsLogin] = useState(false)
@@ -96,7 +95,7 @@ export default function Login() {
                             {/* would switch back to login to signup */}
                                 <button type="submit">SIGNUP</button>
                         </form>
-                        <a onClick={switchLoginOrSignup}>LOGIN</a>
+                        <button onClick={switchLoginOrSignup}>LOGIN</button>
                     </section>
                 </section>
             ) : (
@@ -114,7 +113,7 @@ export default function Login() {
                                 </section>
                                     <button className="submitBtn" type="submit" >LOGIN</button>
                             </form>
-                            <a onClick={switchLoginOrSignup}>SIGNUP</a>
+                            <button onClick={switchLoginOrSignup}>SIGNUP</button>
                         </section>
                     </section>
                 ) 

@@ -1,4 +1,7 @@
 import Images from '../Images';
+const DefaultImages = Images;
+export default DefaultImages;
+
 
 // other code
 

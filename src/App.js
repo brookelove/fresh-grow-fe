@@ -21,7 +21,7 @@ function App() {
   const availbleRoutesToShow = ["/", "/products"];
 
   //checking if the current route is in the
-  const showHeaderAndFooter = availbleRoutesToShow.includes(currentPage);
+  // const showHeaderAndFooter = availbleRoutesToShow.includes(currentPage);
 
   return (
     <div>

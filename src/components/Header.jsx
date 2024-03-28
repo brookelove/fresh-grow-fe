@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import "../assets/CSS/components/Header.css"
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -9,7 +9,7 @@ export default function Header({showCart}){
     const [titleText, setTitleText] = useState("FRESH GLOW");
     const [isSearching, setSearching] = useState(false);
     const [user, setUserName] = useState(null);
-    const [logout, setLogout] = useState(false);
+    const [setLogout] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [isSticky, setIsSticky] = useState(false);
@@ -24,32 +24,32 @@ export default function Header({showCart}){
         setSearching(false);
         setShouldShowResults(false);
       };
-    let handleLogoutSubmit = async (event) => {
+    // let handleLogoutSubmit = async (event) => {
 
-        const options = {
-            method: 'POST',
-            credentials: 'include'
-        };
-        try {
-            let response = await fetch('https://freshglow.onrender.com/api/user/logout',options);
-            console.log(response)
+    //     const options = {
+    //         method: 'POST',
+    //         credentials: 'include'
+    //     };
+    //     try {
+    //         let response = await fetch('https://freshglow.onrender.com/api/user/logout',options);
+    //         console.log(response)
 
-            const data = await response.json();
-            console.log(data)
+    //         const data = await response.json();
+    //         console.log(data)
 
-            if(response.status === 204) {
-                console.log(data);
-                 // If login or sign up is successful, redirect to home page
-                localStorage.removeItem('username');
-                window.location = '/'
-            } else {
-                console.error("Server Response ", response);
-            }
+    //         if(response.status === 204) {
+    //             console.log(data);
+    //              // If login or sign up is successful, redirect to home page
+    //             localStorage.removeItem('username');
+    //             window.location = '/'
+    //         } else {
+    //             console.error("Server Response ", response);
+    //         }
 
-        } catch (error) {
-            console.error("Error ", error);
-        }
-    };
+    //     } catch (error) {
+    //         console.error("Error ", error);
+    //     }
+    // };
     // take to refactor in a section called api to make all api calls from
         //call to the products first
         let fetchProducts = async () => {
@@ -78,7 +78,6 @@ export default function Header({showCart}){
         
     }
 
-
     useEffect(()=> {
     let username = localStorage.getItem("username")
     
@@ -88,8 +87,7 @@ export default function Header({showCart}){
         filterProducts(data);
     };
 
-
-    if(username != null || username != undefined) {
+    if(username !== null || username !== undefined) {
         setUserName(username)
         setLogout(true)
     } else {
@@ -113,7 +111,7 @@ export default function Header({showCart}){
     return () => {
         window.removeEventListener('scroll', stickyNavbar);
     };
-    }, [])
+    }, [filteredProducts])
 
 
     let openSearch = () =>{
@@ -155,7 +153,7 @@ export default function Header({showCart}){
                     onMouseLeave={resetTitle}>{titleText}</Link>
                 {/* the ability to hide and show search using useState T/F */}
                 <div className='rightSide'>
-                        <a onClick={openSearch}>SEARCH</a>
+                        <button onClick={openSearch} >SEARCH</button>
                     {/* {logout ? (
                         <a onClick={handleLogoutSubmit}>LOGOUT</a>
                         
@@ -169,11 +167,11 @@ export default function Header({showCart}){
             </nav>
             {isSearching && (
                 <div className='searchContainer'>
-                <a onClick={openSearch}>&times;</a>
+                <button onClick={openSearch}>&times;</button>
                 <input text="search" placeholder="search for items" value={searchQuery} onChange={handleSearchChange} className={isSticky ? 'textBarDark' : ''}></input>
-                <a onClick={search}>
+                <button onClick={search}>
                     <FaArrowRightLong />
-                </a>
+                </button>
             </div>
             )}
             {/* Display search results */}

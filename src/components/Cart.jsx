@@ -1,4 +1,4 @@
- import { useEffect, useState } from "react"
+ import { useEffect } from "react"
 import "../assets/CSS/components/Cart.css"
 
 export default function Cart({onClose}){

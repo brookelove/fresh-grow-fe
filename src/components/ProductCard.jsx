@@ -11,7 +11,7 @@ export default function ProductCard ({product}){
             state: { product: product 
          }}}
          className="productCardConatiner" >
-            <img src={imageSrc} className="smallProductImage"/>
+            <img src={imageSrc} className="smallProductImage" alt={product.product_name}/>
             <div>
                 <h5>{product.product_name}</h5>
                 <h6>${product.price}</h6>
